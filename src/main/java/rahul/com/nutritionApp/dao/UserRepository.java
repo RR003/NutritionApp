@@ -1,0 +1,11 @@
+package rahul.com.nutritionApp.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import rahul.com.nutritionApp.model.User;
+
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<User, Integer> {
+    Optional<User> findByEmail(String email);
+}
+
