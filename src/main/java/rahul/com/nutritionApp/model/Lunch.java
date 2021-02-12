@@ -6,8 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "breakfast")
-public class Breakfast {
+@Table(name = "lunch")
+public class Lunch {
     @Id
     @Column(name = "item")
     private String item;
@@ -45,6 +45,8 @@ public class Breakfast {
     public void setVitaminD(int vitaminD) {
         this.vitaminD = vitaminD;
     }
+
+
 
     public String getItem() {
         return item;
