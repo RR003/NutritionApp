@@ -1,170 +1,171 @@
 .header {
-    height: 7vh;
-    background-color: #27293a;
-    position: sticky;
+  height: 7vh;
+  background-color: #27293a;
+  position: sticky;
 }
 
 .header p {
-    position: relative;
-    top: 1vh;
-    left: 2vw;
-    font-size: 30px;
-    color: aliceblue
+  position: relative;
+  top: 1vh;
+  left: 2vw;
+  font-size: 30px;
+  color: aliceblue;
 }
 
 .today {
-    text-align: center;
+  text-align: center;
 }
 .day {
-    position: relative;
-    left:2vw;
-    font-size: 50px;
-    bottom: 20px;
+  position: relative;
+  left: 2vw;
+  font-size: 50px;
+  bottom: 20px;
 }
 
 .hr {
-    position: relative;
-    bottom: 20px;
-    border: none;
-    border-top: 3px double #333;
-    color: #333;
-    overflow: visible;
-    text-align: center;
-    height: 5px;
+  position: relative;
+  bottom: 20px;
+  border: none;
+  border-top: 3px double #333;
+  color: #333;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
 }
 
 hr:after {
-    background: #fff;
-    padding: 0 4px;
-    position: relative;
-    top: -13px;
+  background: #fff;
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
 }
 
 .box {
-    display: flex;
+  display: flex;
 }
 
 .todayBox {
-    @extend .box;
+  @extend .box;
 }
 
 .add {
-    width: 100px;
-    height: 30px;
-    background: none;
-    border: none;
-    color: rgb(245, 245, 245);
-    font-size: 20px;
-    background: rgb(52, 152, 219);
-    border-radius: 6px;
-    cursor: pointer;
+  width: 100px;
+  height: 30px;
+  background: none;
+  border: none;
+  color: rgb(245, 245, 245);
+  font-size: 20px;
+  background: rgb(52, 152, 219);
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .displayBox {
-    width: 10vw;
-    border-radius: 5px;
-    box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
-    margin:10px;
-    cursor: pointer;
-    position: relative;
+  width: 10vw;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px;
+  cursor: pointer;
+  position: relative;
 }
 
 .padding {
-    padding-top: 50px;
-    padding-right: 30px;
-    padding-bottom: 50px;
-    padding-left: 80px;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
 }
 
-.topRibbon0{
-    height: 1vh;
-    background-color: rgba(235, 155, 76);
+.topRibbon0 {
+  height: 1vh;
+  background-color: rgba(235, 155, 76);
 }
 
 .topRibbon1 {
-    height: 1vh;
-    background-color: rgba(201,71,245);
+  height: 1vh;
+  background-color: rgba(201, 71, 245);
 }
 
 .topRibbon2 {
-    background-color: rgba(79,134,247);
-    height: 1vh;
+  background-color: rgba(79, 134, 247);
+  height: 1vh;
 }
 
 .itemBox {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
 }
-.putFood0{
-    /* main box */
-    border-radius: 5px;
-    margin:16px;
-    box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
-}
-
-.putFood1{
-    /* main box */
-    border-radius: 5px;
-    margin:16px;
-    box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+.putFood0 {
+  /* main box */
+  border-radius: 5px;
+  margin: 16px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.putFood2{
-    /* main box */
-    border-radius: 5px;
-    margin:16px;
-    box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+.putFood1 {
+  /* main box */
+  border-radius: 5px;
+  margin: 16px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.putFood2 {
+  /* main box */
+  border-radius: 5px;
+  margin: 16px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .buttonControl {
-    font-family: sans-serif;
-    position: absolute;
-    left: 3.5vw;
-    bottom: 0px;
+  font-family: sans-serif;
+  position: absolute;
+  left: 3.5vw;
+  bottom: 0px;
 }
 
 input {
-    width: 3vw;
-    height: 3vh;
+  width: 3vw;
+  height: 3vh;
 }
 
 .containerPadding {
-    padding-top: 2vh;
+  padding-top: 2vh;
 }
 
 .fadeOut {
-    opacity: 0.3; /* Makes it so that you can't see these elements, and that you can't click them */
-    pointer-events: none;
+  opacity: 0.3; /* Makes it so that you can't see these elements, and that you can't click them */
+  pointer-events: none;
 }
 
 .fadeTotallyOut {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.fadeIn { /* the opposite, you take what was originally not seen and add it in */
-    opacity: 1;
-    pointer-events: all;
+.fadeIn {
+  /* the opposite, you take what was originally not seen and add it in */
+  opacity: 1;
+  pointer-events: all;
 }
 
 .popUp {
-    border-style: solid;
-    z-index:1;
-    background-color: rgb(245, 245, 245);
-    box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
-    border-radius: 5px;
-    position: fixed;
-    top: 10vh;
-    left: 25vw;
-    height: 80vh;
-    width: 50vw;
+  border-style: solid;
+  z-index: 1;
+  background-color: rgb(245, 245, 245);
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  position: fixed;
+  top: 10vh;
+  left: 25vw;
+  height: 80vh;
+  width: 50vw;
 }
 
 .popUpButton {
-    position: absolute;
-    right:0px;
+  position: absolute;
+  right: 0px;
 }
 
 .submit {

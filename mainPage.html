@@ -1,36 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title></title>
-    <link rel="stylesheet" href="mainPage.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-    <div onclick = "closeMenu()" id = "popUp" class = "popUp fadeTotallyOut">
-        <button class = "popUpButton btn btn-danger">X</button>
+    <link rel="stylesheet" href="mainPage.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div onclick="closeMenu()" id="popUp" class="popUp fadeTotallyOut">
+      <button class="popUpButton btn btn-danger">X</button>
     </div>
     <section class="body">
-        <div class="header">
-            <p>NutriCal</p>
-        </div>
-        <div class="today">
-            <p id ="today" style="align-items:center; font-size: 50px;"></p>
-        </div>
-        <div class="putFood0"></div>
-        <div class="submit">
-            <button onclick = "submitForm()" class = "btn btn-primary">Submit</button>
-        </div>
-        <div class="padding"></div>
-        <div class="putFood1"></div>
-        <div class="submit">
-            <button onclick = "submitForm()" class = "btn btn-primary">Submit</button>
-        </div>
-        <div class="padding"></div>
-        <div class="putFood2"></div>
-        <div class="submit">
-            <button onclick = "submitForm()" class = "btn btn-primary">Submit</button>
-        </div>
+
+      <div class="header">
+        <p>NutriCal</p>
+      </div>
+      <div class="today">
+        <p id="today" style="align-items: center; font-size: 50px"></p>
+      </div>
+      <div class="putFood0"></div>
+      <div class="submit">
+        <button onclick="submitBreakfast()" class="btn btn-primary">
+          Submit Breakfast
+        </button>
+      </div>
+      <div class="padding"></div>
+      <div class="putFood1"></div>
+      <div class="submit">
+        <button onclick="submitLunch()" class="btn btn-primary">
+          Submit Lunch
+        </button>
+      </div>
+      <div class="padding"></div>
+      <div class="putFood2"></div>
+      <div class="submit">
+        <button onclick="submitDinner()" class="btn btn-primary">
+          Submit Dinner
+        </button>
+      </div>
     </section>
-<script src="mainPage.js"></script>
-</body>
+    <script src="mainPage.js"></script>
+  </body>
+</html>
