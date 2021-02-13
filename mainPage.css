@@ -166,3 +166,8 @@ input {
     position: absolute;
     right:0px;
 }
+
+.submit {
+    margin: auto;
+    width: 10%;
+}
