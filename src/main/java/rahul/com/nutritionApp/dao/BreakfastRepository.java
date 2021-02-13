@@ -5,6 +5,6 @@ import rahul.com.nutritionApp.model.Breakfast;
 
 import java.util.Optional;
 
-public interface BreakfastRepository extends JpaRepository<Breakfast, Integer> {
+public interface BreakfastRepository extends JpaRepository<Breakfast, String> {
     Optional<Breakfast> findByItem(String item);
 }
