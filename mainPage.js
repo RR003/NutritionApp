@@ -32,19 +32,21 @@ async function getBody(username) {
     },
   });
   userBody = await response.json();
-  dayCal = userBody.daycalories;
-  dayCalcium = userBody.daycalcium;
-  dayCarbs = userBody.daycarbs;
-  dayCholestrol = userBody.daycholesterol;
-  dayFiber = userBody.dayfiber;
-  dayIron = userBody.dayiron;
-  dayPotassium = userBody.daypotassium;
-  dayProtein = userBody.dayprotein;
-  daySodium = userBody.daysodium;
-  daySugar = userBody.daysugar;
-  dayTotalFat = userBody.daytotal_fat;
-  dayVitaminC = userBody.dayvitaminC;
-  dayVitaminD = userBody.dayvitaminD;
+  if (userBody.lastDate === getDate()) {
+    dayCal = userBody.daycalories;
+    dayCalcium = userBody.daycalcium;
+    dayCarbs = userBody.daycarbs;
+    dayCholestrol = userBody.daycholesterol;
+    dayFiber = userBody.dayfiber;
+    dayIron = userBody.dayiron;
+    dayPotassium = userBody.daypotassium;
+    dayProtein = userBody.dayprotein;
+    daySodium = userBody.daysodium;
+    daySugar = userBody.daysugar;
+    dayTotalFat = userBody.daytotal_fat;
+    dayVitaminC = userBody.dayvitaminC;
+    dayVitaminD = userBody.dayvitaminD;
+  }
 }
 getBody(username);
 
@@ -190,11 +192,13 @@ function closeMenu() {
 function submitBreakfast() {
   for (let i = 0; i < breakfastItems.length; i++) {
     multiple = breakfastForm[i].value;
+
     if (multiple > 0) {
+      console.log(multiple);
       console.log("yeaaaaa");
       dict = breakfastItems[i];
       list = Object.values(dict);
-      dayCal = list[1] + dayCal;
+      dayCal = list[1] * multiple + dayCal;
       dayTotalFat = list[2] * multiple + dayTotalFat;
       dayCalcium = list[9] * multiple + dayCalcium;
       dayCarbs = list[5] * multiple + dayCarbs;
@@ -236,8 +240,10 @@ function submitBreakfast() {
       dayiron: dayIron,
       daypotassium: dayPotassium,
       dayvitaminC: dayVitaminC,
+      lastDate: getDate(),
     })
   );
+  goNextPage(username);
 }
 
 function submitLunch() {
@@ -246,7 +252,7 @@ function submitLunch() {
     if (multiple > 0) {
       dict = lunchItems[i];
       list = Object.values(dict);
-      dayCal = list[1] + dayCal;
+      dayCal = list[1] * multiple + dayCal;
       dayTotalFat = list[2] * multiple + dayTotalFat;
       dayCalcium = list[9] * multiple + dayCalcium;
       dayCarbs = list[5] * multiple + dayCarbs;
@@ -290,6 +296,7 @@ function submitLunch() {
       dayvitaminC: dayVitaminC,
     })
   );
+  goNextPage(username);
 }
 function submitDinner() {
   for (let i = 0; i < dinnerItems.length; i++) {
@@ -297,7 +304,7 @@ function submitDinner() {
     if (multiple > 0) {
       dict = dinnerItems[i];
       list = Object.values(dict);
-      dayCal = list[1] + dayCal;
+      dayCal = list[1] * multiple + dayCal;
       dayTotalFat = list[2] * multiple + dayTotalFat;
       dayCalcium = list[9] * multiple + dayCalcium;
       dayCarbs = list[5] * multiple + dayCarbs;
@@ -341,6 +348,12 @@ function submitDinner() {
       dayvitaminC: dayVitaminC,
     })
   );
+  goNextPage(username);
+}
+
+function goNextPage(username) {
+  sessionStorage.setItem("username", username);
+  window.location.href = "/nutritionPage.html";
 }
 
 main();
