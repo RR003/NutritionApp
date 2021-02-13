@@ -63,6 +63,7 @@ async function createAccount(email, dob, gender, username, password) {
       dob: dob,
       password: password,
       dateJoined: today,
+      lastDate: today,
       daycalories: 0,
       daytotal_fat: 0,
       daycholesterol: 0,
@@ -82,8 +83,9 @@ async function createAccount(email, dob, gender, username, password) {
   goHomePage();
 }
 
-function goHomePage() {
+function goHomePage(username) {
   console.log("you are logged in!!!");
+  sessionStorage.setItem("username", username);
   window.location.href = "/mainPage.html";
 }
 
@@ -98,7 +100,7 @@ async function verifyIdentity(username, password) {
   let body = await response.json();
   console.log(body);
   let result = false;
-  if (body.password === password) goHomePage();
+  if (body.password === password) goHomePage(username);
   else console.log("You are not logged in");
 }
 
