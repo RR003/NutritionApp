@@ -1,0 +1,184 @@
+.header {
+    height: 7vh;
+    background-color: #27293a;
+    position: sticky;
+  }
+  
+  .header p {
+    position: relative;
+    top: 1vh;
+    left: 2vw;
+    font-size: 30px;
+    color: aliceblue;
+  }
+  body{
+    position: relative;
+    background-color: #686868;
+}
+  .today {
+    text-align: center;
+  }
+  .day {
+    position: relative;
+    left: 2vw;
+    font-size: 50px;
+    bottom: 20px;
+  }
+  
+  
+  .box {
+    display: flex;
+  }
+  
+  .todayBox {
+    @extend .box;
+  }
+    
+  .displayBox {
+    width: 10vw;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px 0 rgba(128, 20, 20, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 10px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .padding {
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+  }
+  
+  .topRibbon0 {
+    height: 1vh;
+    background-color: rgba(235, 155, 76);
+  }
+  
+  .topRibbon1 {
+    height: 1vh;
+    background-color: rgba(201, 71, 245);
+  }
+  
+  .topRibbon2 {
+    background-color: rgba(79, 134, 247);
+    height: 1vh;
+  }
+  
+  .itemBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: auto;
+  }
+  .putFood0 {
+    /* main box */
+    border-radius: 80px;
+    margin: 16px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .putFood1 {
+    /* main box */
+    border-radius: 80px;
+    margin: 16px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .putFood2 {
+    /* main box */
+    border-radius: 80px;
+    margin: 16px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .buttonControl {
+    font-family: sans-serif;
+    position: absolute;
+    left: 3.5vw;
+    bottom: 0px;
+  }
+  
+  input {
+    width: 3vw;
+    height: 3vh;
+  }
+  
+  .containerPadding {
+    padding-top: 2vh;
+  }
+  
+  .fadeOut {
+    opacity: 0.3; /* Makes it so that you can't see these elements, and that you can't click them */
+    pointer-events: none;
+  }
+  
+  .fadeTotallyOut {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .fadeIn {
+    /* the opposite, you take what was originally not seen and add it in */
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .popUp {
+    border-style: solid;
+    z-index: 1;
+    background-color: rgb(245, 245, 245);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    position: fixed;
+    top: 10vh;
+    left: 25vw;
+    height: 80vh;
+    width: 50vw;
+  }
+  
+  .popUpButton {
+    position: absolute;
+    right: 0px;
+  }
+
+  header{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color:olivedrab;
+    padding: 9px;
+}
+
+nav a:visited, 
+nav a:link{
+    color: #fff;
+    text-decoration: none;
+}
+nav > ul {
+    display: inline;
+    padding: 0;
+}
+
+nav > ul > li{
+    display: inline-block;
+    list-style: none;
+    margin: 0 10px 0 10px;
+}
+footer {
+    bottom: 0;
+    text-align: center;
+    color: ivory;
+    background-color: lightslategray;
+    left: 0;
+    width:100%;
+    padding: 10px;
+}
+
+html body {
+ padding-top: 8vh;
+}
+
+
