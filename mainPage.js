@@ -1,3 +1,4 @@
+var foodForms = [];
 function getDate() {
     let today = new Date();
     let dd = today.getDate();
@@ -28,7 +29,6 @@ async function sampleFunc(url, meal, classModifier) {
       },
     });
     body = await response.json();
-    console.log(body);
     displayFood(body, meal, classModifier)
 }
 
@@ -64,6 +64,7 @@ function displayFood(dict, meal, classModifier) {
         ribbon.classList = ("topRibbon" + classModifier);
         let h6 = document.createElement("h6");
         h6.setAttribute("style", "text-align: center;")
+        h6.setAttribute("onclick", "bringUp()")
         h6.appendChild(document.createTextNode(item.item));
         displayBox.setAttribute("id", item.item);
         displayBox.appendChild(ribbon);
@@ -71,16 +72,16 @@ function displayFood(dict, meal, classModifier) {
         // create padding space
         let padding = document.createElement("div");
         padding.classList = "containerPadding";
+        padding.setAttribute("onclick", "bringUp()");
         displayBox.appendChild(padding);
-        displayBox.appendChild(createButtonControl());
-        displayBox.setAttribute("onclick", "bringUp()");
+        displayBox.appendChild(createButtonControl(item.item));
         foodContainer.appendChild(displayBox);
         // add buttons: red
     }
 }
 
 
-function createButtonControl() {
+function createButtonControl(food) {
     //create div
     let div = document.createElement("div");
     div.classList = "buttonControl";
@@ -88,6 +89,8 @@ function createButtonControl() {
     inputForm.setAttribute("type", "number");
     inputForm.setAttribute("min", "0");
     inputForm.setAttribute("value", "0");
+    inputForm.setAttribute("name", food);
+    foodForms.push(inputForm);
     div.appendChild(inputForm);
     return div;
 }
@@ -108,4 +111,13 @@ function closeMenu() {
     restOfFile.classList = "body fadeIn";
 }
 
+function submitForm() {
+    var postValues = {};
+    for(let i = 0; i < foodForms.length; i++) {
+        if(foodForms[i].value > 0) {
+            postValues[foodForms[i].name] = foodForms[i].value;
+        }
+    }
+    console.log(postValues);
+}
 main();
