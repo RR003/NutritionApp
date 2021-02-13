@@ -1,3 +1,4 @@
+
 let breakfastItems = [];
 let lunchItems = [];
 let dinnerItems = [];
@@ -47,6 +48,26 @@ async function getBody(username) {
     dayVitaminC = userBody.dayvitaminC;
     dayVitaminD = userBody.dayvitaminD;
   }
+
+var foodForms = [];
+function getDate() {
+    let today = new Date();
+    let dd = today.getDate();
+
+    let mm = today.getMonth()+1; 
+    let yyyy = today.getFullYear();
+    if(dd<10) 
+    {
+        dd='0'+dd;
+    } 
+
+    if(mm<10) 
+    {
+        mm='0'+mm;
+    } 
+    today = mm+'-'+dd+'-'+yyyy;
+    return today;
+
 }
 getBody(username);
 
@@ -68,6 +89,7 @@ function getDate() {
 
 let body = "";
 
+
 async function getBreakfast(url, meal, classModifier) {
   const response = await fetch(url, {
     headers: {
@@ -78,6 +100,7 @@ async function getBreakfast(url, meal, classModifier) {
   body = await response.json();
   breakfastItems = body;
   displayFood(body, meal, classModifier);
+
 }
 
 async function getLunch(url, meal, classModifier) {
@@ -171,6 +194,7 @@ function createButtonControl(food, meal) {
   foodForms.push(inputForm);
   div.appendChild(inputForm);
   return div;
+
 }
 
 function bringUp() {
@@ -356,4 +380,13 @@ function goNextPage(username) {
   window.location.href = "/nutritionPage.html";
 }
 
+function submitForm() {
+    var postValues = {};
+    for(let i = 0; i < foodForms.length; i++) {
+        if(foodForms[i].value > 0) {
+            postValues[foodForms[i].name] = foodForms[i].value;
+        }
+    }
+    console.log(postValues);
+}
 main();
