@@ -3,9 +3,10 @@ from selenium.webdriver.common.by import By
 import time
 
 def starting():
-    sizes = [1,13,3,6,3,1,1,2,1]
-    driver = webdriver.Chrome()
+    sizes = [1,6,3,6,1,2,2]
 
+    PATH = "C:\Program Files (x86)\chromedriver.exe"
+    driver = webdriver.Chrome(PATH)
     driver.get("https://stonybrook.nutrislice.com/")
     time.sleep(0.5)
     initial_button = driver.find_element_by_xpath("/html/body/main/div/div[4]/button")
@@ -25,22 +26,17 @@ def starting():
                     "/html/body/main/div/div[1]/div[3]/div/div[2]/div[4]/ul/li[1]/a",
                     "/html/body/main/div/div[1]/div[3]/div/div[2]/div[6]/ul/li[1]/a",
                     "/html/body/main/div/div[1]/div[3]/div/div[2]/div[8]/ul/li[1]/a",
-                    "/html/body/main/div/div[1]/div[3]/div/div[2]/div[10]/ul/li[1]/a",
-                    "/html/body/main/div/div[1]/div[3]/div/div[2]/div[12]/ul/li/a",
-                    "/html/body/main/div/div[1]/div[3]/div/div[2]/div[14]/ul/li/a",
-                    "/html/body/main/div/div[1]/div[3]/div/div[2]/div[16]/ul/li[1]/a",
-                    "/html/body/main/div/div[1]/div[3]/div/div[2]/div[18]/ul/li/a"]
+                    "/html/body/main/div/div[1]/div[3]/div/div[2]/div[10]/ul/li/a",
+                    "/html/body/main/div/div[1]/div[3]/div/div[2]/div[12]/ul/li[1]/a",
+                    "/html/body/main/div/div[1]/div[3]/div/div[2]/div[14]/ul/li[1]/a"]
 
-
-    xCloseButtonLinks = ["/html/body/main/div/div[1]/div[3]/div/div[2]/div[19]/div[1]/ul/li[1]/a",
-                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[19]/div[1]/ul/li[13]/a",
-                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[19]/div[1]/ul/li[3]/a",
-                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[19]/div[1]/ul/li[6]/a",
-                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[19]/div[1]/ul/li[3]/a",
-                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[19]/div[1]/ul/li[1]/a",
-                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[19]/div[1]/ul/li[1]/a",
-                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[19]/div[1]/ul/li[2]/a",
-                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[19]/div[1]/ul/li[1]/a"]
+    xCloseButtonLinks = ["/html/body/main/div/div[1]/div[3]/div/div[2]/div[15]/div[1]/ul/li/a",
+                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[15]/div[1]/ul/li[6]/a",
+                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[15]/div[1]/ul/li[3]/a",
+                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[15]/div[1]/ul/li[6]/a",
+                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[15]/div[1]/ul/li/a",
+                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[15]/div[1]/ul/li[2]/a",
+                         "/html/body/main/div/div[1]/div[3]/div/div[2]/div[15]/div[1]/ul/li[2]/a"]
 
     def masterFunction():
         for i in range(len(sizes)):
@@ -50,9 +46,9 @@ def starting():
             size = sizes[i]
 
             for j in range(size):
-                information = "/html/body/main/div/div[1]/div[3]/div/div[2]/div[19]/div[1]/ul/li[{}]/div/div/div[2]/div[1]/div/div".format(
+                information = "/html/body/main/div/div[1]/div[3]/div/div[2]/div[15]/div[1]/ul/li[{}]/div/div/div[2]/div[1]/div/div".format(
                     j + 1)
-                foodItemss = "/html/body/main/div/div[1]/div[3]/div/div[2]/div[19]/div[1]/ul/li[{}]/div/div/div[1]/div/h3".format(
+                foodItemss = "/html/body/main/div/div[1]/div[3]/div/div[2]/div[15]/div[1]/ul/li[{}]/div/div/div[1]/div/h3".format(
                     j + 1)
                 time.sleep(0.5)
                 info = driver.find_element(By.XPATH, information).text
@@ -69,9 +65,7 @@ def starting():
                     xbutton.click()
                     break
 
-                next_button = driver.find_element(By.XPATH,
-                                                  "/html/body/main/div/div[1]/div[3]/div/div[2]/div[19]/div[1]/div[2]/ul/li[3]/a")
-
+                next_button = driver.find_element(By.XPATH, "/html/body/main/div/div[1]/div[3]/div/div[2]/div[15]/div[1]/div[2]/ul/li[3]/a")
                 next_button.click()
     masterFunction()
 
@@ -84,7 +78,7 @@ def starting():
 
         item10_button = driver.find_element_by_xpath("/html/body/main/div/div[1]/div[3]/div/div[2]/div[2]/ul/li[1]/a")
         item10_button.click()
-        size = 14
+        size = 13
         count = 0
         for i in range(size):
             information = "/html/body/main/div/div[1]/div[3]/div/div[2]/div[3]/div[1]/ul/li[{}]/div/div/div[2]/div[1]/div/div".format(count + 1)
@@ -100,7 +94,7 @@ def starting():
 
             if (count == size - 1):
                 xbutton = driver.find_element_by_xpath(
-                    "/html/body/main/div/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/ul/li[14]/a")
+                    "/html/body/main/div/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/ul/li[13]/a")
                 xbutton.click()
                 break
             else:
@@ -112,7 +106,3 @@ def starting():
 
     breakfastrow()
 starting()
-
-
-
-
