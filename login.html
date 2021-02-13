@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="javascript.js"></script>
+  <title>NutriCal</title> 
+</head>
+
+<body>
+  <header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>s
+  </header>
+
+  <main id="main-holder">
+
+    <article>
+      <h1>Welcome to NutriCal</h1>
+    </article>
+
+    <div class="form">
+      <div class="tab-header">
+        <div class="active">Sign Up</div>
+        <div>Sign In</div>
+      </div>
+      <div class="tab-content">
+        <div class="tab-body active">
+          <div class="form-element">
+            <div class="form-element">Email:</div>
+            <input type="text" placeholder="Email">
+          </div>
+          <div class="form-element">
+            <div class="form-element">Date Of Birth:</div>
+            <input type="date" id="Birthday" placeholder="Date of Birth">
+          </div>
+          <div class="form-element">
+            <div class="form-element">Gender:</div>
+            <select type="text" class="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-element">
+            <div class="form-element">Username:</div>
+            <input type="text" placeholder="Username">
+          </div>
+          <div class="form-element">
+            <div class="form-element">Password:</div>
+            <input type="password" placeholder="Password">
+          </div>
+          <div class="form-element">
+            <button>Sign Up</button>
+          </div>
+        </div>
+        
+        <div class="tab-body">
+          <div class="form-element">
+            <input type="text" placeholder="Email / Username">
+          </div>
+          <div class="form-element">
+            <input type="password" placeholder="Password">
+          </div>
+          <div class="form-element">
+            <input type="checkbox" id="remember_me">
+            <label for="remember_me">Remember me</label>
+          </div>
+          <div class="form-element">
+            <button>Sign In</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
