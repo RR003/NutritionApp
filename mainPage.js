@@ -3,6 +3,24 @@ let lunchItems = [];
 let dinnerItems = [];
 var foodForms = [];
 
+let breakfastForm = [];
+let lunchForm = [];
+let dinnerForm = [];
+
+let dayCal = 0;
+let dayCalcium = 0;
+let dayCarbs = 0;
+let dayCholestrol = 0;
+let dayFiber = 0;
+let dayIron = 0;
+let dayPotassium = 0;
+let dayProtein = 0;
+let daySodium = 0;
+let daySugar = 0;
+let dayTotalFat = 0;
+let dayVitaminC = 0;
+let dayVitaminD = 0;
+
 let username = sessionStorage.getItem("username");
 let userBody = [];
 async function getBody(username) {
@@ -14,24 +32,21 @@ async function getBody(username) {
     },
   });
   userBody = await response.json();
-  console.log("HELLLOO", userBody);
+  dayCal = userBody.daycalories;
+  dayCalcium = userBody.daycalcium;
+  dayCarbs = userBody.daycarbs;
+  dayCholestrol = userBody.daycholesterol;
+  dayFiber = userBody.dayfiber;
+  dayIron = userBody.dayiron;
+  dayPotassium = userBody.daypotassium;
+  dayProtein = userBody.dayprotein;
+  daySodium = userBody.daysodium;
+  daySugar = userBody.daysugar;
+  dayTotalFat = userBody.daytotal_fat;
+  dayVitaminC = userBody.dayvitaminC;
+  dayVitaminD = userBody.dayvitaminD;
 }
 getBody(username);
-
-let dayCal = userBody.daycalories;
-console.log(dayCal);
-let dayCalcium = userBody.daycalcium;
-let dayCarbs = userBody.daycarbs;
-let dayCholestrol = userBody.daycholesterol;
-let dayFiber = userBody.dayfiber;
-let dayIron = userBody.dayiron;
-let dayPotassium = userBody.daypotassium;
-let dayProtein = userBody.dayprotein;
-let daySodium = userBody.daysodium;
-let daySugar = userBody.daysugar;
-let dayTotalFat = userBody.daytotal_fat;
-let dayVitaminC = userBody.dayvitaminC;
-let dayVitaminD = userBody.dayvitaminD;
 
 function getDate() {
   let today = new Date();
@@ -134,14 +149,16 @@ function displayFood(dict, meal, classModifier) {
     padding.classList = "containerPadding";
     padding.setAttribute("onclick", "bringUp()");
     displayBox.appendChild(padding);
-    displayBox.appendChild(createButtonControl(item.item));
+    displayBox.appendChild(createButtonControl(item.item, classModifier));
     foodContainer.appendChild(displayBox);
     // add buttons: red
   }
 }
 
-function createButtonControl(food) {
+function createButtonControl(food, meal) {
   //create div
+  foodForms = [breakfastForm, lunchForm, dinnerForm];
+  foodForms = foodForms[meal];
   let div = document.createElement("div");
   div.classList = "buttonControl";
   let inputForm = document.createElement("input");
@@ -170,21 +187,115 @@ function closeMenu() {
   restOfFile.classList = "body fadeIn";
 }
 
-function submitForm() {
-  var postValues = {};
-  for (let i = 0; i < foodForms.length; i++) {
-    if (foodForms[i].value > 0) {
-      postValues[foodForms[i].name] = foodForms[i].value;
-    }
-  }
-  console.log(postValues);
-}
-
 function submitBreakfast() {
   for (let i = 0; i < breakfastItems.length; i++) {
-    multiple = foodForms[i].value;
+    multiple = breakfastForm[i].value;
     if (multiple > 0) {
+      console.log("yeaaaaa");
       dict = breakfastItems[i];
+      list = Object.values(dict);
+      dayCal = list[1] + dayCal;
+      dayTotalFat = list[2] * multiple + dayTotalFat;
+      dayCalcium = list[9] * multiple + dayCalcium;
+      dayCarbs = list[5] * multiple + dayCarbs;
+      dayCholestrol = list[3] * multiple + dayCholestrol;
+      dayFiber = list[7] * multiple + dayFiber;
+      dayIron = list[10] * multiple + dayIron;
+      dayPotassium = list[11] * multiple + dayPotassium;
+      dayProtein = list[8] * multiple + dayProtein;
+      daySodium = list[4] * multiple + daySodium;
+      daySugar = list[6] * multiple + daySugar;
+      dayVitaminC = list[12] * multiple + dayVitaminC;
+      dayVitaminD = list[13] * multiple + dayVitaminD;
+    }
+  }
+
+  const url = `http://172.24.49.229:8080/users/${username}`;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("PUT", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(
+    JSON.stringify({
+      username: userBody.username,
+      email: userBody.email,
+      sex: userBody.gender,
+      dob: userBody.dob,
+      password: userBody.password,
+      dateJoined: userBody.dateJoined,
+      daycalories: dayCal,
+      daytotal_fat: dayTotalFat,
+      daycholesterol: dayCholestrol,
+      daysodium: daySodium,
+      daycarbs: dayCarbs,
+      daysugar: daySugar,
+      dayfiber: dayFiber,
+      dayprotein: dayProtein,
+      dayvitaminD: dayVitaminD,
+      daycalcium: dayCalcium,
+      dayiron: dayIron,
+      daypotassium: dayPotassium,
+      dayvitaminC: dayVitaminC,
+    })
+  );
+}
+
+function submitLunch() {
+  for (let i = 0; i < lunchItems.length; i++) {
+    multiple = lunchForm[i].value;
+    if (multiple > 0) {
+      dict = lunchItems[i];
+      list = Object.values(dict);
+      dayCal = list[1] + dayCal;
+      dayTotalFat = list[2] * multiple + dayTotalFat;
+      dayCalcium = list[9] * multiple + dayCalcium;
+      dayCarbs = list[5] * multiple + dayCarbs;
+      dayCholestrol = list[3] * multiple + dayCholestrol;
+      dayFiber = list[7] * multiple + dayFiber;
+      dayIron = list[10] * multiple + dayIron;
+      dayPotassium = list[11] * multiple + dayPotassium;
+      dayProtein = list[8] * multiple + dayProtein;
+      daySodium = list[4] * multiple + daySodium;
+      daySugar = list[6] * multiple + daySugar;
+      dayVitaminC = list[12] * multiple + dayVitaminC;
+      dayVitaminD = list[13] * multiple + dayVitaminD;
+    }
+  }
+
+  const url = `http://172.24.49.229:8080/users/${username}`;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("PUT", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(
+    JSON.stringify({
+      username: userBody.username,
+      email: userBody.email,
+      sex: userBody.gender,
+      dob: userBody.dob,
+      password: userBody.password,
+      dateJoined: userBody.dateJoined,
+      daycalories: dayCal,
+      daytotal_fat: dayTotalFat,
+      daycholesterol: dayCholestrol,
+      daysodium: daySodium,
+      daycarbs: dayCarbs,
+      daysugar: daySugar,
+      dayfiber: dayFiber,
+      dayprotein: dayProtein,
+      dayvitaminD: dayVitaminD,
+      daycalcium: dayCalcium,
+      dayiron: dayIron,
+      daypotassium: dayPotassium,
+      dayvitaminC: dayVitaminC,
+    })
+  );
+}
+function submitDinner() {
+  for (let i = 0; i < dinnerItems.length; i++) {
+    multiple = dinnerForm[i].value;
+    if (multiple > 0) {
+      dict = dinnerItems[i];
       list = Object.values(dict);
       dayCal = list[1] + dayCal;
       dayTotalFat = list[2] * multiple + dayTotalFat;
