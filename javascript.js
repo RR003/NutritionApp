@@ -28,7 +28,17 @@ function onCreate() {
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
   console.log("email", email);
-  createAccount(email, dob, gender, username, password);
+  if (
+    email === "" ||
+    dob === "" ||
+    gender === "" ||
+    username === "" ||
+    password === ""
+  ) {
+    console.log("Fill in all required fields!");
+  } else {
+    createAccount(email, dob, gender, username, password);
+  }
 }
 
 async function createAccount(email, dob, gender, username, password) {
@@ -68,10 +78,13 @@ async function createAccount(email, dob, gender, username, password) {
       dayvitaminC: 0,
     })
   );
+
+  goHomePage();
 }
 
 function goHomePage() {
   console.log("you are logged in!!!");
+  window.location.href = "/mainPage.html";
 }
 
 async function verifyIdentity(username, password) {
