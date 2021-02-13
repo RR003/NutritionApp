@@ -9,25 +9,21 @@ body {
   display: grid;
   justify-items: center;
   align-items: center;
-  background-color: #27293a;
+  background-color: #686868;
 }
-
 
 #main-holder {
   width: 50%;
-  height: 80%;
+  height: 170%;
   display: grid;
-  justify-items: center;
   align-items: center;
-  background-image: url("images/logo.png");
-  background-position: top;
-  background-color: #cccccc;
+  background-color: #3b444b;
   border-radius: 7px;
   box-shadow: 0px 0px 5px 2px black;
 }
-* {
+*{
     box-sizing:border-box;
-  }
+}
   
   .form {
     position:absolute;
@@ -51,7 +47,7 @@ body {
   }
   .form .tab-header > div.active {
     background:#f5f5f5;
-    color:#111;
+    color:rgb(63, 63, 63);
   }
   .form .tab-content {
     padding:20px;
@@ -80,7 +76,7 @@ body {
     padding:10px;
     border:none;
     outline:none;
-    background: #39CCCC;
+    background: olivedrab;
     color:#f5f5f5;
     font-size:16px;
     text-transform:uppercase;
@@ -103,13 +99,13 @@ body {
       outline:none;
   }
 
-  header{
+header{
     display: block;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    background-color:lightsalmon;
+    background-color:olivedrab;
     padding: 9px;
 }
 nav a:visited, 
@@ -130,11 +126,11 @@ nav > ul > li{
 
 footer {
   position: fixed;
-  left: 0;
   bottom: 0;
+  text-align: center;
   width: 100%;
-  padding: 9px;
-  background-color: grey;
+  padding: 10px;
+  background-color: lightslategray;
   color: white;
 
 }
@@ -143,8 +139,8 @@ h1{
     color: ivory;
     font-size: 3em;
     text-align: center;
-    position: fixed;
-    top: 1.3em;
+    position:absolute;
+    top: 15vh;
     left: 0;
     width: 100%;
     margin: 0;
@@ -157,12 +153,17 @@ aside{
     padding: 5em; 
 
 }
-article{
-  width: 75%;
-}
+
 p{
     color: ivory;
     font-size: 2em;
-    padding: 2px;
-    margin: 0.5em 0 0.5em 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40vw
+}
+a:link {
+  color: ivory;
+}
+a:hover {
+  color: lightcyan;
 }
