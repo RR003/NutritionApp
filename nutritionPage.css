@@ -192,6 +192,7 @@ html {
   }
 
   .contentDiv {
+    display: flex;
     border-top: none !important;
     display: flex;
     border-style: solid;
@@ -201,3 +202,19 @@ html {
     background-color: rgba(255, 255, 255);
     width: 90vw;
   }
+
+
+
+  .ol p{
+    color: rgb(250, 250, 250);
+    font-size: small;
+    width: 90vw;
+  }
+
+  .highlightGreen{
+    background-color: rgba(50,205,50, 0.7);
+}
+
+.highlightRed{
+  background-color: rgba(255, 0, 0, 0.7);
+}
