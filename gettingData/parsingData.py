@@ -1,12 +1,10 @@
 import re
-
 import requests
-
 
 listOfFood = [[], [], []]
 file1 = open(r"food.txt")
-sizes = [1,13,3,6,3,1,1,2,1,14]
-foodType = [2,2,1,1,1,2,2,[1,2],1,0]
+sizes = [1,6,3,6,1,2,2,13]
+foodType = [2,2,1,1,2,2,[1,2],0]
 
 
 with open('food.txt') as f:
@@ -91,7 +89,7 @@ with open('food.txt') as f:
     for j in range(len(sizes)):
         for i in range(sizes[j]):
             dict = mainFunction()
-            if (j == 7):
+            if (j == 6):
                 listOfFood[1].append(dict)
                 listOfFood[2].append(dict)
             else:
@@ -103,26 +101,26 @@ print(listOfFood[1])
 print()
 print(listOfFood[2])
 
-deleteBreafastUrl = "http://localhost:8080/Dbreakfasts"
-deleteDinnerUrl = "http://localhost:8080/Ddinners"
-deleteLunchUrl = "http://localhost:8080/Dlunches"
+deleteBreafastUrl = "http://172.24.49.229:8080/Dbreakfasts"
+deleteDinnerUrl = "http://172.24.49.229:8080/Ddinners"
+deleteLunchUrl = "http://172.24.49.229:8080/Dlunches"
 
 requests.delete(deleteBreafastUrl)
 requests.delete(deleteLunchUrl)
 requests.delete(deleteDinnerUrl)
 
-breakfastUrl = "http://localhost:8080/breakfasts"
+breakfastUrl = "http://172.24.49.229:8080/breakfasts"
 for i in range(len(listOfFood[0])):
     dict = listOfFood[0][i]
     requests.post(breakfastUrl, json=dict)
 
 
-lunchUrl = "http://localhost:8080/lunches"
+lunchUrl = "http://172.24.49.229:8080/lunches"
 for i in range(len(listOfFood[1])):
     dict = listOfFood[1][i]
     requests.post(lunchUrl, json=dict)
 
-dinnerUrl = "http://localhost:8080/dinners"
+dinnerUrl = "http://172.24.49.229:8080/dinners"
 for i in range(len(listOfFood[2])):
     dict = listOfFood[2][i]
     requests.post(dinnerUrl, json=dict)
@@ -130,13 +128,6 @@ for i in range(len(listOfFood[2])):
 print(len(listOfFood[0]))
 print(len(listOfFood[1]))
 print(len(listOfFood[2]))
-
-
-
-
-
-
-
 
 
 
